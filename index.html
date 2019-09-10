@@ -1,6 +1,89 @@
-<html>
+<!DOCTYPE html>
+<html lang='en'>
     <head>
+        <meta charset='utf-8'>
+        <title>Astrology Quiz</title>
+        <meta name='description'content='Test your astrology knowledge!'>
+        <meta name='viewport' content='width=device-width'>
         <link href='wireframe.css' rel='stylesheet'/>
-        <link href='wireframe.html' rel='next'/>
+        <script src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+        crossorigin="anonymous"></script>
     </head>
+    <body>
+        <header>
+            <h1>Astrology Quiz</h1>
+            <a href='nav.html'>Link to homepage <!-- add an image here later --> </a>
+        </header>
+        <main>
+            <section class='start-page' id='js-start-page'>
+                <h2>How well do you know astrology?</h2>
+                <!-- add an image here later -->
+                <button>Start</button>
+            </section>
+            <section class='quiz-form'>
+                <form class='questions' id='js-quiz-question'>
+                    <!-- this will be replaced with a <script> element later -->
+                    <span class='question-score'>Question 3 of 10</span>
+                    <fieldset name='question-answer-form'>
+                    <legend class='quiz-question'>This is a question</legend>
+                        <label for='option 0' class='answer-choice'>
+                            <input type='radio' name='answer-choice' value='option A'>Option A
+                        </label>
+                            <br>
+                        <label for='option 1' class='answer-choice'>
+                            <input type='radio' name='answer-choice' value='option B'>Option B
+                        </label>
+                            <br>
+                        <label for='option 2' class='answer-choice'>
+                            <input type='radio' name='answer-choice' value='option C'>Option C
+                        </label>    
+                            <br>
+                        <label for='option 3' class='answer-choice'>    
+                            <input type='radio' name='answer-choice' value='option D'>Option D
+                        </label>
+                            <br>
+                    <input class='submit' type='submit' value='Submit'>
+                    </fieldset>
+                    <span class='question-score'>Score: 3/10</span>
+                </form>
+            </section>
+            <section class='answer-feedback'>
+                <div class='correct'>
+                    <h3>Correct!</h3>
+                    <!-- add a results image here -->
+                    <p>Here's some feedback about how you did</p>
+                </div>
+                <div class='wrong'>
+                    <h3>Wrong...</h3>
+                    <!-- add a results image here -->
+                    <p>Here's some feedback about how you did</p>
+                </div>
+            </section>
+            <section class='results-page'>
+                <div class='results'>
+                    <h3>Your final score is _____!</h3>
+                    <!-- add a results image here -->
+                    <p>Here's some feedback about how you did</p>
+                </div>
+                <div class='try-again'>
+                    <input class='try-again' type='submit' value='Try Again'>
+                </div>
+                <div class='learn-more'>
+                    <ul class='resources'>
+                        <li><a href='nav.html'>Source 1</a></li>
+                        <li><a href='nav.html'>Source 2</a></li>
+                        <li><a href='nav.html'>Source 3</a></li>
+                    </ul>
+                </div>
+            </section>
+        </main>
+        <footer>
+            <h4>It's written in the stars</h4>
+            <ul class='footer-nav'>
+                <li class='footer-nav'><a href='nav.html'>Learn More</a></li>
+                <li class='footer-nav'><a href='nav.html'>Icons 8</a></li>
+            </ul>
+        </footer>
+    </body>
 </html>
