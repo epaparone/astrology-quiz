@@ -30,14 +30,6 @@ const STORE = [
         incorrect: ['https://media.giphy.com/media/nrXif9YExO9EI/giphy.gif', 'spongebob fire'],
         feedback: 'Fire signs have a passion for life. They are masters of seizing opportunities.'
     },
-    {   question:'Which of the following is not an astrological symbol?',
-        options: ['bull', 'archer', 'griffin', 'sea goat'],
-        theAnswer: 'griffin',
-        img: ['https://media.giphy.com/media/l3q2Xl2Rd8wZfMCaI/giphy.gif', 'planets'],
-        correct: ['https://media.giphy.com/media/2XrwfijeA6JtS/giphy.gif', 'solar system chart'],
-        incorrect: ['https://media.giphy.com/media/quO0X65yj6gw0/giphy.gif', 'not quite, falling cat'],
-        feedback: 'The griffin is not represented in the western zodiac. The bull symbolizes Taurus, the archer represents Sagittarius, and the sea goat is the symbol of Capricorn.'
-    },
     {   question:'Which ancient civilization is primarily credited with the creation of the 12 zodiac signs we reference today?',
         options: ['Babylon', 'Greece', 'Rome', 'Egypt'],
         theAnswer: 'Babylon',
@@ -45,6 +37,14 @@ const STORE = [
         correct: ['https://media.giphy.com/media/OcZp0maz6ALok/giphy.gif', 'Liz Lemon high five'],
         incorrect: ['https://media.giphy.com/media/uVDQEuHab311EvjIKF/giphy.gif', 'not technically'],
         feedback: 'The Babylonians are credited with creating the 12 zodiac signs we use today. However, all of these civilizations contributed to western astrology in various ways.'
+    },
+    {   question:'Which constellation is represented by the goddess of wheat & agriculture?',
+        options: ['Aquarius', 'Pisces', 'Virgo', 'Aries'],
+        theAnswer: 'Virgo',
+        img: ['https://media.giphy.com/media/SiEsjaKkBCStNdYXvV/giphy.gif', 'Virgo symbol'],
+        correct: ['https://media.giphy.com/media/q1zsIXcp8N2ne/giphy.gif', 'Leslie Knope Pawnee goddesses'],
+        incorrect: ['https://media.giphy.com/media/Rd7ztus86tlGmNJ1f4/giphy.gif', 'wheat hand'],
+        feedback: 'Virgos (August 23 - September 22) are perfectionists at heart. An earth sign, their symbol reflects their deep connection to the physical world.'
     },
     {   question:'What is a “map” of the planets and constellations at a person’s time & place of birth called?',
         options: ['planet map', 'birth chart', 'star grid', 'planetary graph'],
@@ -70,13 +70,13 @@ const STORE = [
         incorrect: ['https://media.giphy.com/media/148x4ezZxvpIeA/giphy.gif', 'Kermit drenched'],
         feedback: 'Like water, these signs are fluid. They float between reality and their imagination and are known for their nurturing, empathetic, and artistic nature.'
     },
-    {   question:'Which constellation is represented by the goddess of wheat & agriculture?',
-        options: ['Aquarius', 'Pisces', 'Virgo', 'Aries'],
-        theAnswer: 'Virgo',
-        img: ['https://media.giphy.com/media/SiEsjaKkBCStNdYXvV/giphy.gif', 'Virgo symbol'],
-        correct: ['https://media.giphy.com/media/q1zsIXcp8N2ne/giphy.gif', 'Leslie Knope Pawnee goddesses'],
-        incorrect: ['https://media.giphy.com/media/3Z1pqaxLhl0MQZggKp/giphy.gif', 'wheat hand'],
-        feedback: 'Virgos (August 23 - September 22) are perfectionists at heart. An earth sign, their symbol reflects their deep connection to the physical world.'
+    {   question:'Which of the following is not an astrological symbol?',
+        options: ['bull', 'archer', 'griffin', 'sea goat'],
+        theAnswer: 'griffin',
+        img: ['https://media.giphy.com/media/l3q2Xl2Rd8wZfMCaI/giphy.gif', 'planets'],
+        correct: ['https://media.giphy.com/media/2XrwfijeA6JtS/giphy.gif', 'solar system chart'],
+        incorrect: ['https://media.giphy.com/media/quO0X65yj6gw0/giphy.gif', 'not quite, falling cat'],
+        feedback: 'The griffin is not represented in the western zodiac. The bull symbolizes Taurus, the archer represents Sagittarius, and the sea goat is the symbol of Capricorn.'
     },
     {   question:'Which set of characteristics is associated with the Leo sign?',
         options: ['Vivacious, theatrical, passionate', 'Humanitarian, nonconformist, free-spirited', 'Intuitive, compassionate, protective', 'Logical, practical, systematic'],
@@ -106,7 +106,7 @@ function createQuestion() {
         return `<form class='questions' id='js-quiz-question'>
                 <fieldset name='question-answer-form'>
                     <legend class='quiz-question'>${STORE[questionNumber].question}</legend>
-                        <img src=${STORE[questionNumber].img[0]} alt=${STORE[questionNumber].img[1]}>
+                        <img class='question-img' src=${STORE[questionNumber].img[0]} alt=${STORE[questionNumber].img[1]}>
                             <br>
                         <label for=${STORE[questionNumber].options[0]} class='answer-choice'>
                             <input class='radio-choice' type='radio' name='answer-choice' value=${STORE[questionNumber].options[0]}>${STORE[questionNumber].options[0]}
@@ -133,6 +133,7 @@ function createQuestion() {
         $('.js-quiz-form').remove();
         $('.js-results-page').toggleClass('hide');
         renderResultsPage();
+        howDidYouDo();
         tryAgain();
         console.log('showed final results');
     }
@@ -152,7 +153,7 @@ function correctAnswerFeedback() {
         `<div class='correct'>
             <h3>Correct!</h3>
             <h4>The answer is ${STORE[questionNumber].theAnswer}</h4>
-            <img src=${STORE[questionNumber].correct[0]} alt=${STORE[questionNumber].correct[1]}>
+            <img class='feedback-img' src=${STORE[questionNumber].correct[0]} alt=${STORE[questionNumber].correct[1]}>
             <p>${STORE[questionNumber].feedback}</p>
         </div>
         <button type='button' class='js-next-button name='next-button' value='Next'>Next</button>
@@ -167,7 +168,7 @@ function incorrectAnswerFeedback() {
             <h3>Wrong...</h3>
             <h4>Your answer was ${$('input[type=radio][name=answer-choice]:checked').val()}</h4>
             <h4>It's actually ${STORE[questionNumber].theAnswer}</h4>
-            <img src=${STORE[questionNumber].incorrect[0]} alt=${STORE[questionNumber].incorrect[1]}>
+            <img class='feedback-img' src=${STORE[questionNumber].incorrect[0]} alt=${STORE[questionNumber].incorrect[1]}>
             <p>${STORE[questionNumber].feedback}</p>
         </div>
         <button type='button' class='js-next-button' name='next-button' value='Next'>Next</button>
@@ -179,13 +180,7 @@ function incorrectAnswerFeedback() {
 
 // creates results page html
 function resultsPage() {
-    //howDidYouDo();
-    return `<div class='results'>
-                <h3>Your final score is ${currentScore}!</h3>
-                <img src='https://media.giphy.com/media/f4CIemlTB5FbYBKnux/giphy.gif' alt='zodiac wheel of fortune'>
-                <p>It's written in the stars! Explore more astrology information, try again, or accept your fate.</p>
-            </div>
-            <div class='try-again'>
+    return `<div class='try-again'>
                 <button type='button' class='js-try-again' name='try-again-button' value='Try Again'>Try Again</button>
             </div>
             <div class='learn-more'>
@@ -225,9 +220,40 @@ function renderIncorrectAnswerFeedback() {
     $('.js-answer-feedback').html(incorrectAnswerFeedback());
 };
 
+// displays the results page
 function renderResultsPage() {
-    $('.js-results-page').html(resultsPage());
+    $('.results').html(resultsPage());
+    howDidYouDo();
 };
+
+//this function & logic statement adds additional feedback to the results page
+function howDidYouDo() {
+    if (0 <= currentScore && currentScore <= 3) {
+        $('.js-final-feedback').html(`
+            <h3>Your final score is ${currentScore}!</h3>
+            <img src='https://media.giphy.com/media/5QW76Ww9bquHdg1fTv/giphy.gif' alt='give it another shot'>
+            <p>Build up your astrology knowledge, and try again.</p>
+        `);
+    } else if (4 <= currentScore && currentScore <= 6) {
+        $('.js-final-feedback').html(`
+            <h3>Your final score is ${currentScore}!</h3>
+            <img src='https://media.giphy.com/media/EfdrZTT4sSGY0/giphy.gif' alt='good try'>
+            <p>You have a good foundation. Keep learning!</p>
+        `);
+    } else if (7 <= currentScore && currentScore <= 9) {
+        $('.js-final-feedback').html(`
+            <h3>Your final score is ${currentScore}!</h3>
+            <img src='https://media.giphy.com/media/NInhSPmxCgaxq/giphy.gif' alt='impressive'>
+            <p>Great work! You seem to know all about the stars!</p>
+        `);
+    } else if (currentScore >= 10) {
+        $('.js-final-feedback').html(`
+            <h3>Your final score is ${currentScore}!</h3>
+            <img src='https://media.giphy.com/media/kPHBjnWpTtuDf3LC50/giphy.gif' alt='flawless'>
+            <p>Perfect score!!</p>
+        `);
+    }
+}; 
 
 // these functions add event listeners for when to display our earlier functions
 
@@ -307,50 +333,3 @@ function runQuizApp() {
 };
 
 $(runQuizApp)
-
-
-
-
-// this is if I want to add more info to the results page
-/*// group of constants for potential final feedback options
-const low = [
-        '0-3',
-        'https://media.giphy.com/media/5QW76Ww9bquHdg1fTv/giphy.gif',
-        'give it another shot',
-        'Build up your astrology knowledge, and try again.'
-];
-
-const mid = [
-    '4-6',
-    'https://media.giphy.com/media/EfdrZTT4sSGY0/giphy.gif',
-    'good try',
-    'You have a good foundation. Keep learning!'
-];
-
-const high = [
-    '7-9',
-    'https://media.giphy.com/media/NInhSPmxCgaxq/giphy.gif',
-    'impressive',
-    'Great work! You seem to know all about the stars!'
-];
-    
-const perfect = [
-    '10',
-    'https://media.giphy.com/media/kPHBjnWpTtuDf3LC50/giphy.gif',
-    'flawless',
-    'Perfect score!!'
-]; 
-
-let array;
-
-function howDidYouDo() {
-    if (0 <= currentScore <= 3) {
-        array = low;
-    } else if (4 <= currentScore && currentScore <= 6) {
-        array = mid;
-    } else if (7 <= currentScore && currentScore <= 9) {
-        array = high;
-    } else if (currentScore >= 10) {
-        array = perfect;
-    }
-}; */

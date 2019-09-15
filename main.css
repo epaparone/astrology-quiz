@@ -1,6 +1,9 @@
 * {
     box-sizing: border-box;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 a {
@@ -43,6 +46,10 @@ form {
     font-weight: bold;
     margin: 15px 0px;
     display: block;
+}
+
+.question-img, .feedback-img {
+    max-width: 30%;
 }
 
 .submit {
