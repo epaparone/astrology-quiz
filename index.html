@@ -14,70 +14,31 @@
     <body>
         <header>
             <h1>Astrology Quiz</h1>
-            <a href='nav.html'>Link to homepage <!-- add an image here later --> </a>
+            <button type='button' id='js-restart-button' name='restart-button' value='restart'>Restart Quiz</button>
         </header>
         <main>
             <section class='start-page' id='js-start-page'>
                 <h2>How well do you know astrology?</h2>
                 <!-- add an image here later -->
-                <button>Start</button>
+                <button type='button' id='js-start-button' class='start-button' name='start-button' value='Start'>Start</button>
             </section>
-            <section class='quiz-form'>
-                <form class='questions' id='js-quiz-question'>
-                    <!-- this will be replaced with a <script> element later -->
-                    <span class='question-score'>Question 3 of 10</span>
-                    <fieldset name='question-answer-form'>
-                    <legend class='quiz-question'>This is a question</legend>
-                        <label for='option 0' class='answer-choice'>
-                            <input type='radio' name='answer-choice' value='option A'>Option A
-                        </label>
-                            <br>
-                        <label for='option 1' class='answer-choice'>
-                            <input type='radio' name='answer-choice' value='option B'>Option B
-                        </label>
-                            <br>
-                        <label for='option 2' class='answer-choice'>
-                            <input type='radio' name='answer-choice' value='option C'>Option C
-                        </label>    
-                            <br>
-                        <label for='option 3' class='answer-choice'>    
-                            <input type='radio' name='answer-choice' value='option D'>Option D
-                        </label>
-                            <br>
-                    <input class='submit' type='submit' value='Submit'>
-                    </fieldset>
-                    <span class='question-score'>Score: 3/10</span>
-                </form>
+
+            <section id='js-question-counter'>
             </section>
-            <section class='answer-feedback'>
-                <div class='correct'>
-                    <h3>Correct!</h3>
-                    <!-- add a results image here -->
-                    <p>Here's some feedback about how you did</p>
-                </div>
-                <div class='wrong'>
-                    <h3>Wrong...</h3>
-                    <!-- add a results image here -->
-                    <p>Here's some feedback about how you did</p>
-                </div>
+
+            <section class='js-quiz-form hide'>
             </section>
-            <section class='results-page'>
-                <div class='results'>
-                    <h3>Your final score is _____!</h3>
-                    <!-- add a results image here -->
-                    <p>Here's some feedback about how you did</p>
-                </div>
-                <div class='try-again'>
-                    <input class='try-again' type='submit' value='Try Again'>
-                </div>
-                <div class='learn-more'>
-                    <ul class='resources'>
-                        <li><a href='nav.html'>Source 1</a></li>
-                        <li><a href='nav.html'>Source 2</a></li>
-                        <li><a href='nav.html'>Source 3</a></li>
-                    </ul>
-                </div>
+
+            <section class='js-answer-feedback hide'>
             </section>
+
+            <section id='js-score-counter'>
+            </section>
+
+        
+            <section class='js-results-page hide'>
+            </section>
+        
         </main>
         <footer>
             <h4>It's written in the stars</h4>
