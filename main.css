@@ -209,7 +209,7 @@ h2 {
 .quiz-question, p, legend {
     font-size: 20px;
     font-weight: bolder;
-    text-align: left;
+    text-align: center;
     padding: 10px 5px 5px 5px;
     margin: 10px auto;
     display: block;
@@ -267,7 +267,8 @@ input:focus {
 }
 
 .question-img, .feedback-img, .final-img {
-    width: 50%;
+    width: 55%;
+    max-width: 200px;
     display: inline-block;
     margin: 20px;
 }
