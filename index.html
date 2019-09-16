@@ -10,29 +10,31 @@
         integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
         crossorigin="anonymous"></script>
         <script src="index.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Gayathri:100,400,700&display=swap" rel="stylesheet">
     </head>
     <body>
         <header>
-            <h1>Astrology Quiz</h1>
-            <button type='button' id='js-restart-button' name='restart-button' value='restart'>Restart Quiz</button>
+            <img class='logo start' src='https://user-images.githubusercontent.com/39974667/64954401-ff260b00-d874-11e9-930d-70feb3508f0a.png' alt='Astro Quiz'>
+            <div class='js-restart-option'>
+            </div>
         </header>
         <main>
             <section class='start-page' id='js-start-page'>
-                <h2>How well do you know astrology?</h2>
-                <!-- add an image here later -->
-                <button type='button' id='js-start-button' class='start-button' name='start-button' value='Start'>Start</button>
+                <h1 class='call-to-action'>How well do you know astrology?</h1>
+                <input type='button' id='js-start-button' class='start-button' name='start-button' value='Start'>
+            </section>
+            
+            <section class='current-count' id='js-question-counter'>
             </section>
 
-            <section id='js-question-counter'>
+            <section class='current-score' id='js-score-counter'>
             </section>
+            
 
             <section class='js-quiz-form hide'>
             </section>
 
             <section class='js-answer-feedback hide'>
-            </section>
-
-            <section id='js-score-counter'>
             </section>
 
             <section class='js-results-page hide'>
@@ -44,7 +46,6 @@
         
         </main>
         <footer>
-            <h4>It's written in the stars</h4>
             <ul class='footer-nav'>
                 <li class='footer-nav'><a href='nav.html'>Learn More</a></li>
                 <li class='footer-nav'><a href='https://icons8.com/icons'>Icons 8</a></li>

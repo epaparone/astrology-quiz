@@ -47,15 +47,15 @@ const STORE = [
         feedback: 'Virgos (August 23 - September 22) are perfectionists at heart. An earth sign, their symbol reflects their deep connection to the physical world.'
     },
     {   question:'What is a “map” of the planets and constellations at a person’s time & place of birth called?',
-        options: ['planet map', 'birth chart', 'star grid', 'planetary graph'],
-        theAnswer: 'birth chart',
+        options: ['Star grid', 'Planet map', 'Birth chart', 'Planetary graph'],
+        theAnswer: 'Birth chart',
         img: ['https://media.giphy.com/media/S60H9JdcyNlcpGfsAo/giphy.gif', 'birth chart'],
         correct: ['https://media.giphy.com/media/g4LjgClvpwzo8tPVHE/giphy.gif', 'illustrated planets'],
         incorrect: ['https://media.giphy.com/media/85HZdaXZRo4y4/giphy.gif', 'birthday question'],
         feedback: 'A birth chart or natal chart is a map of the placement of the planets at the exact moment someone was born. Astrologists believe that these charts hold the key to understanding someone\'s personality and circumstances.'
     },
     {   question:'Which sign does this symbol represent? This sign is also associated with adventorous free-spirits.',
-        options: ['Scorpio', 'Leo', 'Sagittarius', 'Taurus'],
+        options: ['Scorpio', 'Sagittarius', 'Taurus', 'Leo'],
         theAnswer: 'Sagittarius',
         img: ['https://media.giphy.com/media/4PXVVn5iHHjTf2oorg/giphy.gif', 'Sagittarius symbol'],
         correct: ['https://media.giphy.com/media/jVc1vUq8dM1NPPjzCi/giphy.gif', 'Sagittarius constellation'],
@@ -71,8 +71,8 @@ const STORE = [
         feedback: 'Like water, these signs are fluid. They float between reality and their imagination and are known for their nurturing, empathetic, and artistic nature.'
     },
     {   question:'Which of the following is not an astrological symbol?',
-        options: ['bull', 'archer', 'griffin', 'sea goat'],
-        theAnswer: 'griffin',
+        options: ['Archer', 'Griffin', 'Sea goat', 'Bull'],
+        theAnswer: 'Griffin',
         img: ['https://media.giphy.com/media/l3q2Xl2Rd8wZfMCaI/giphy.gif', 'planets'],
         correct: ['https://media.giphy.com/media/2XrwfijeA6JtS/giphy.gif', 'solar system chart'],
         incorrect: ['https://media.giphy.com/media/quO0X65yj6gw0/giphy.gif', 'not quite, falling cat'],
@@ -104,27 +104,27 @@ let rank;
 function createQuestion() {
     if (questionNumber < STORE.length) {
         return `<form class='questions' id='js-quiz-question'>
-                <fieldset name='question-answer-form'>
-                    <legend class='quiz-question'>${STORE[questionNumber].question}</legend>
-                        <img class='question-img' src=${STORE[questionNumber].img[0]} alt=${STORE[questionNumber].img[1]}>
-                            <br>
-                        <label for=${STORE[questionNumber].options[0]} class='answer-choice'>
-                            <input class='radio-choice' type='radio' name='answer-choice' value=${STORE[questionNumber].options[0]}>${STORE[questionNumber].options[0]}
-                        </label>
-                            <br>
-                        <label for=${STORE[questionNumber].options[1]} class='answer-choice'>
-                            <input class='radio-choice' type='radio' name='answer-choice' value=${STORE[questionNumber].options[1]}>${STORE[questionNumber].options[1]}
-                        </label>
-                            <br>
-                        <label for=${STORE[questionNumber].options[2]} class='answer-choice'>
-                            <input class='radio-choice' type='radio' name='answer-choice' value=${STORE[questionNumber].options[2]}>${STORE[questionNumber].options[2]}
-                        </label>    
-                            <br>
-                        <label for=${STORE[questionNumber].options[3]} class='answer-choice'>    
-                            <input class='radio-choice' type='radio' name='answer-choice' value=${STORE[questionNumber].options[3]}>${STORE[questionNumber].options[3]}
-                        </label>
-                            <br>
-                    <input class='quiz-submit' type='submit' value='Submit'>
+                    <img class='question-img' src=${STORE[questionNumber].img[0]} alt=${STORE[questionNumber].img[1]}>
+                    <fieldset name='question-answer-form'>
+                        <legend class='quiz-question'>${STORE[questionNumber].question}</legend>
+                                <br>
+                            <label for=${STORE[questionNumber].options[0]} class='answer-choice'>
+                                <input checked required class='radio-choice' type='radio' name='answer-choice' value=${STORE[questionNumber].options[0]}>${STORE[questionNumber].options[0]}
+                            </label>
+                                <br>
+                            <label for=${STORE[questionNumber].options[1]} class='answer-choice'>
+                                <input required class='radio-choice' type='radio' name='answer-choice' value=${STORE[questionNumber].options[1]}>${STORE[questionNumber].options[1]}
+                            </label>
+                                <br>
+                            <label for=${STORE[questionNumber].options[2]} class='answer-choice'>
+                                <input required class='radio-choice' type='radio' name='answer-choice' value=${STORE[questionNumber].options[2]}>${STORE[questionNumber].options[2]}
+                            </label>    
+                                <br>
+                            <label for=${STORE[questionNumber].options[3]} class='answer-choice'>    
+                                <input required class='radio-choice' type='radio' name='answer-choice' value=${STORE[questionNumber].options[3]}>${STORE[questionNumber].options[3]}
+                            </label>
+                                <br>
+                        <input class='quiz-submit' type='submit' value='Submit'>
                 </fieldset>
             </form>`;
     } else {
@@ -150,13 +150,13 @@ function numberDisplay() {
 // creates correct answer feedback html
 function correctAnswerFeedback() {
     $('.js-answer-feedback').html(        
-        `<div class='correct'>
-            <h3>Correct!</h3>
-            <h4>The answer is ${STORE[questionNumber].theAnswer}</h4>
+        `<div class='correct'>   
+            <h1>Correct!</h1>
+            <p>Correct response: ${STORE[questionNumber].theAnswer}</p>         
             <img class='feedback-img' src=${STORE[questionNumber].correct[0]} alt=${STORE[questionNumber].correct[1]}>
             <p>${STORE[questionNumber].feedback}</p>
         </div>
-        <button type='button' class='js-next-button name='next-button' value='Next'>Next</button>
+        <input type='button' id='next-question' class='js-next-button name='next-button' value='Next'>
     `);
     console.log('correct answer');
 };
@@ -165,13 +165,13 @@ function correctAnswerFeedback() {
 function incorrectAnswerFeedback() {
     $('.js-answer-feedback').html(        
         `<div class='wrong'>
-            <h3>Wrong...</h3>
-            <h4>Your answer was ${$('input[type=radio][name=answer-choice]:checked').val()}</h4>
-            <h4>It's actually ${STORE[questionNumber].theAnswer}</h4>
+            <h1>Wrong...</h1>
+            <p>You answered: ${$('input[type=radio][name=answer-choice]:checked').val()}</p>
+            <p>Correct response: ${STORE[questionNumber].theAnswer}</p>
             <img class='feedback-img' src=${STORE[questionNumber].incorrect[0]} alt=${STORE[questionNumber].incorrect[1]}>
             <p>${STORE[questionNumber].feedback}</p>
         </div>
-        <button type='button' class='js-next-button' name='next-button' value='Next'>Next</button>
+        <input type='button' id='next-question' class='js-next-button' name='next-button' value='Next'>
     `);
     console.log('incorrect answer');
 };
@@ -181,17 +181,23 @@ function incorrectAnswerFeedback() {
 // creates results page html
 function resultsPage() {
     return `<div class='try-again'>
-                <button type='button' class='js-try-again' name='try-again-button' value='Try Again'>Try Again</button>
+                <input type='button' id='try-again-button' class='js-try-again' name='try-again-button' value='Try Again'>
             </div>
             <div class='learn-more'>
+                <h2>Explore to learn more:</h2>
                 <ul class='resources'>
-                    <li><a href='nav.html'>Source 1</a></li>
-                    <li><a href='nav.html'>Source 2</a></li>
-                    <li><a href='nav.html'>Source 3</a></li>
+                    <li><a href='https://time.com/5315377/are-zodiac-signs-real-astrology-history/'>Are Zodiac Signs Real? Horoscope History</a></li>
+                    <li><a href='https://www.allure.com/story/zodiac-sign-personality-traits-dates'>12 Zodiac Signs: Personality Traits and Sign Dates</a></li>
+                    <li><a href='https://www.costarastrology.com/'>Co – Star App</a></li>
+                    <li><a href='https://www.sanctuaryworld.co/'>Sanctuary App</a></li>
                 </ul>
             </div>`
 };
 
+// creates restart button
+function restartButton() {
+    return `<input type='button' class='restart-button' id='js-restart-button' name='restart-button' value='Restart Quiz'>`
+};
 
 
 // these functions update our earlier constants & template literal strings
@@ -230,30 +236,40 @@ function renderResultsPage() {
 function howDidYouDo() {
     if (0 <= currentScore && currentScore <= 3) {
         $('.js-final-feedback').html(`
-            <h3>Your final score is ${currentScore}!</h3>
-            <img src='https://media.giphy.com/media/5QW76Ww9bquHdg1fTv/giphy.gif' alt='give it another shot'>
+            <h1>Your final score is ${currentScore}!</h1>
             <p>Build up your astrology knowledge, and try again.</p>
+            <img class='final-img' src='https://media.giphy.com/media/5QW76Ww9bquHdg1fTv/giphy.gif' alt='give it another shot'>
         `);
     } else if (4 <= currentScore && currentScore <= 6) {
         $('.js-final-feedback').html(`
-            <h3>Your final score is ${currentScore}!</h3>
-            <img src='https://media.giphy.com/media/EfdrZTT4sSGY0/giphy.gif' alt='good try'>
+            <h1>Your final score is ${currentScore}!</h1>
             <p>You have a good foundation. Keep learning!</p>
+            <img class='final-img' src='https://media.giphy.com/media/EfdrZTT4sSGY0/giphy.gif' alt='good try'>
         `);
     } else if (7 <= currentScore && currentScore <= 9) {
         $('.js-final-feedback').html(`
-            <h3>Your final score is ${currentScore}!</h3>
-            <img src='https://media.giphy.com/media/NInhSPmxCgaxq/giphy.gif' alt='impressive'>
+            <h1>Your final score is ${currentScore}!</h1>
             <p>Great work! You seem to know all about the stars!</p>
+            <img class='final-img' src='https://media.giphy.com/media/NInhSPmxCgaxq/giphy.gif' alt='impressive'>
         `);
     } else if (currentScore >= 10) {
         $('.js-final-feedback').html(`
-            <h3>Your final score is ${currentScore}!</h3>
-            <img src='https://media.giphy.com/media/kPHBjnWpTtuDf3LC50/giphy.gif' alt='flawless'>
+            <h1>Your final score is ${currentScore}!</h1>
             <p>Perfect score!!</p>
+            <img class='final-img' src='https://media.giphy.com/media/kPHBjnWpTtuDf3LC50/giphy.gif' alt='flawless'>
         `);
     }
 }; 
+
+// removes the 'start' class from the start-page version of the logo
+function resizeLogo() {
+    $('.logo').toggleClass('start');
+}
+
+// creates the restart quiz header button
+function renderRestartButton() {
+    $('.js-restart-option').html(restartButton());
+};
 
 // these functions add event listeners for when to display our earlier functions
 
@@ -262,6 +278,8 @@ function beginQuiz() {
     $('#js-start-button').click(function() {
         $('#js-start-page').hide();
         $('.js-quiz-form').removeClass('hide');
+        resizeLogo();
+        renderRestartButton();
         renderFirstQuestion();
         numberDisplay();
     });
