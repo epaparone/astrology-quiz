@@ -43,7 +43,7 @@ const STORE = [
         theAnswer: 'Virgo',
         img: ['https://media.giphy.com/media/SiEsjaKkBCStNdYXvV/giphy.gif', 'Virgo symbol'],
         correct: ['https://media.giphy.com/media/q1zsIXcp8N2ne/giphy.gif', 'Leslie Knope Pawnee goddesses'],
-        incorrect: ['https://media.giphy.com/media/Rd7ztus86tlGmNJ1f4/giphy.gif', 'wheat hand'],
+        incorrect: ['https://media.giphy.com/media/5b9hwe2TWNxZA6kMFj/giphy.gif', 'virgo constellation'],
         feedback: 'Virgos (August 23 - September 22) are perfectionists at heart. An earth sign, their symbol reflects their deep connection to the physical world.'
     },
     {   question:'What is a “map” of the planets and constellations at a person’s time & place of birth called?',
@@ -73,8 +73,8 @@ const STORE = [
     {   question:'Which of the following is not an astrological symbol?',
         options: ['Archer', 'Griffin', 'Sea goat', 'Bull'],
         theAnswer: 'Griffin',
-        img: ['https://media.giphy.com/media/l3q2Xl2Rd8wZfMCaI/giphy.gif', 'planets'],
-        correct: ['https://media.giphy.com/media/2XrwfijeA6JtS/giphy.gif', 'solar system chart'],
+        img: ['https://media.giphy.com/media/3oEdv687nSbdehMRj2/giphy.gif', 'stars landscape'],
+        correct: ['https://media.giphy.com/media/EBwENpp93ld8NBcZjW/giphy.gif', 'zodiac constellations'],
         incorrect: ['https://media.giphy.com/media/quO0X65yj6gw0/giphy.gif', 'not quite, falling cat'],
         feedback: 'The griffin is not represented in the western zodiac. The bull symbolizes Taurus, the archer represents Sagittarius, and the sea goat is the symbol of Capricorn.'
     },
@@ -152,8 +152,8 @@ function correctAnswerFeedback() {
     $('.js-answer-feedback').html(        
         `<div class='correct'>   
             <h1>Correct!</h1>
-            <p>Correct response: ${STORE[questionNumber].theAnswer}</p>         
             <img class='feedback-img' src=${STORE[questionNumber].correct[0]} alt=${STORE[questionNumber].correct[1]}>
+            <h2>Correct response: ${STORE[questionNumber].theAnswer}</h2>         
             <p>${STORE[questionNumber].feedback}</p>
         </div>
         <input type='button' id='next-question' class='js-next-button name='next-button' value='Next'>
@@ -166,9 +166,9 @@ function incorrectAnswerFeedback() {
     $('.js-answer-feedback').html(        
         `<div class='wrong'>
             <h1>Wrong...</h1>
-            <p>You answered: ${$('input[type=radio][name=answer-choice]:checked').val()}</p>
-            <p>Correct response: ${STORE[questionNumber].theAnswer}</p>
             <img class='feedback-img' src=${STORE[questionNumber].incorrect[0]} alt=${STORE[questionNumber].incorrect[1]}>
+            <h2>You answered: ${$('input[type=radio][name=answer-choice]:checked').val()}</h2>
+            <h2>Correct response: ${STORE[questionNumber].theAnswer}</h2>
             <p>${STORE[questionNumber].feedback}</p>
         </div>
         <input type='button' id='next-question' class='js-next-button' name='next-button' value='Next'>
