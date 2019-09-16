@@ -184,7 +184,7 @@ function resultsPage() {
                 <input type='button' id='try-again-button' class='js-try-again' name='try-again-button' value='Try Again'>
             </div>
             <div class='learn-more'>
-                <h2>Explore to learn more:</h2>
+                <h2>Explore & learn more:</h2>
                 <ul class='resources'>
                     <li><a href='https://time.com/5315377/are-zodiac-signs-real-astrology-history/'>Are Zodiac Signs Real? Horoscope History</a></li>
                     <li><a href='https://www.allure.com/story/zodiac-sign-personality-traits-dates'>12 Zodiac Signs: Personality Traits and Sign Dates</a></li>

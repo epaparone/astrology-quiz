@@ -268,7 +268,7 @@ input:focus {
 
 .question-img, .feedback-img, .final-img {
     width: 55%;
-    max-width: 200px;
+    max-width: 240px;
     display: inline-block;
     margin: 20px;
 }
